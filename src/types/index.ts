@@ -5,6 +5,8 @@ export interface AnalysisRequest {
     dengue: boolean;
     covid: boolean;
     vaccination: boolean;
+    internacoes: boolean;
+    mortalidade: boolean;
   };
 }
 
@@ -23,7 +25,7 @@ export interface BenchmarkMetrics {
 
 export interface WSEvent {
   analysisId: string;
-  architecture: 'star' | 'hierarchical';
-  type: 'chunk' | 'done' | 'error' | 'metric';
-  payload: string | BenchmarkMetrics;
+  architecture: 'star' | 'hierarchical' | 'both';
+  type: 'chunk' | 'done' | 'error' | 'metric' | 'quality_metrics';
+  payload: string | BenchmarkMetrics | Record<string, unknown>;
 }
